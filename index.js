@@ -1,25 +1,30 @@
-console.log(undefined);
+/*
+починається з літери або _ або $
+можна використовувати літери, цифри, _ $
+не містить пробілів
+регистрозалежне
 
-console.log(null);
+відповиє на питання що в ній
+*/
 
-/*boolean*/
-console.log(true);
-console.log(false);
+//console.log(userName); //error!!!
+{
+  let userName = 'Olena';
+  console.log('in block - ', userName);
+}
 
-/* string */
-console.log('true qwerty wrwrfd');
-console.log("true");
-console.log('I\'m a teacher');
-console.log("I'm a teacher");
-console.log('undefined');
-console.log('null');
-console.log('12345679878');
+let userName; //оголошення змінної
+console.log(userName); //undefined
 
-/* numeric */
-console.log(12345679878);
-console.log(123.45679878);
-console.log(-Infinity);
-console.log(NaN);
+userName = 'Brad'; //ініціалізація змінної
+console.log(userName);
 
-/* bigInt */
-console.log(1n);
+const userSname = 'Pitt';
+
+console.log(userName, userSname);
+
+
+const userGender = 'male';
+//userGender = 'female';
+
+console.log(userName, userSname, userGender);
