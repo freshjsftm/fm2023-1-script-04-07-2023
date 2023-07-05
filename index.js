@@ -1,15 +1,15 @@
-
-
-let value1 = -9;
+let value1 = 1;
 let value2 = 2;
-let value3 = 0.5;
 
-// Exponentiation
-
-let result = (-value1) ** value2;
-result = -value1 * -value1;
-console.log(result)
+let result = ++value1 + value2;
 
 
-let result2 = (-value1) ** value3;
-console.log(result2)
+// increment/decrement
+
+// console.log('value1', value1);
+// //console.log('++value1', ++value1);
+// console.log('value1++', value1++);
+// console.log('value1', value1);
+
+// console.log('value2', value2);
+// console.log('--value2', --value2);
