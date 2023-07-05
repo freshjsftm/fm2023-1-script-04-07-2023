@@ -1,30 +1,18 @@
-/*
-починається з літери або _ або $
-можна використовувати літери, цифри, _ $
-не містить пробілів
-регистрозалежне
+const AMOUNT_DAYS_OF_WEEK = 7;
+let propgramLang = 'C++';
 
-відповиє на питання що в ній
-*/
+let sens = "I'm a \nteacher?";
+console.log(sens);
 
-//console.log(userName); //error!!!
-{
-  let userName = 'Olena';
-  console.log('in block - ', userName);
-}
+let value1 = '12'; //12
+let value2 = null; //0
 
-let userName; //оголошення змінної
-console.log(userName); //undefined
+let result1 = value1 + value2;
+let result2 = value1 - value2;
+let result3 = value1 * value2;
+let result4 = value1 / value2;
 
-userName = 'Brad'; //ініціалізація змінної
-console.log(userName);
-
-const userSname = 'Pitt';
-
-console.log(userName, userSname);
-
-
-const userGender = 'male';
-//userGender = 'female';
-
-console.log(userName, userSname, userGender);
+console.log('+', result1, typeof result1);
+console.log('-', result2, typeof result2);
+console.log('*', result3, typeof result3);
+console.log('/', result4, typeof result4);
