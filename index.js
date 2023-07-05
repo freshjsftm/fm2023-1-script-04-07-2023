@@ -1,8 +1,9 @@
 
+let value1 = 10; //10
+let value2 = 2; //0 even  1 odd
+let result = value1 % value2;
 
-console.log(12, typeof 12);
-console.log('qwe', typeof 'qwe');
-console.log(undefined, typeof undefined);
-console.log(true, typeof true);
+console.log(result);
 
-console.log(null, typeof null);
+console.log(5%0); //NaN
+console.log(Infinity%Infinity); //NaN
