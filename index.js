@@ -1,15 +1,17 @@
-let value1 = 1;
-let value2 = 2;
 
-let result = ++value1 + value2;
+let value;
+value = 15;
+value = `qwerty`;
+value = null;
 
 
-// increment/decrement
+const number = 12n;
 
-// console.log('value1', value1);
-// //console.log('++value1', ++value1);
-// console.log('value1++', value1++);
-// console.log('value1', value1);
+let userValue = `45`;
+let userValue2 = `5`;
 
-// console.log('value2', value2);
-// console.log('--value2', --value2);
+let result = 4;
+result += +userValue + +userValue2 + +'2';
+//result += Number(userValue);
+
+//userName = true; //bad practic
