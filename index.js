@@ -1,25 +1,21 @@
+// Logical AND (&&) множення
+// console.log(true && true);   //true
+// console.log(true && false);  //false
+// console.log(false && true);  //false
+// console.log(false && false); //false
 
-/*
-  false
-  null
-  undefined
-  NaN
-  0 -0
-  '' "" ``
-*/
+//AND повертає або останню правду або першу неправду
+const condition1 = 10 && null && 'qwe'; //null
+console.log(condition1);
 
-console.log(!5); //false
-console.log(!''); //true
-console.log(!(5-5)); //true
-console.log(!' '); //false
+// Logical OR (||) додавання
+// console.log(true || true);   //true
+// console.log(true || false);  //true
+// console.log(false || true);  //true
+// console.log(false || false); //false
 
-console.log(!!5); //true
-console.log(!!''); //false
-console.log(!!(5-5)); //false
-console.log(!!' '); //true
+//OR повертає або першу правду або  останню неправду
+const condition2 = 0 || null || '' || 5; 
+console.log(condition2);
 
-console.log(Boolean(5)); //true
-console.log(Boolean('')); //false
-console.log(Boolean((5-5))); //false
-console.log(Boolean(' ')); //true
 
