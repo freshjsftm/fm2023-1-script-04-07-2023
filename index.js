@@ -1,21 +1,14 @@
-// Logical AND (&&) множення
-// console.log(true && true);   //true
-// console.log(true && false);  //false
-// console.log(false && true);  //false
-// console.log(false && false); //false
+// console.log(10 > 2 || 'a' === 'b'); //true
 
-//AND повертає або останню правду або першу неправду
-const condition1 = 10 && null && 'qwe'; //null
-console.log(condition1);
+const value = 1;
+console.log(2 < value && value < 7);
+console.log(2 < value || value < 7);
 
-// Logical OR (||) додавання
-// console.log(true || true);   //true
-// console.log(true || false);  //true
-// console.log(false || true);  //true
-// console.log(false || false); //false
 
-//OR повертає або першу правду або  останню неправду
-const condition2 = 0 || null || '' || 5; 
+const condition = 0 || 'qwe';
+console.log(condition);
+
+// Nullish coalescing operator (??)
+let avatar;
+const condition2 = avatar ?? 'anon.png';
 console.log(condition2);
-
-
