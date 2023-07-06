@@ -1,17 +1,21 @@
 
-let value;
-value = 15;
-value = `qwerty`;
-value = null;
+const value1 = 10;
+
+// console.log(value1 > 12);
+// console.log(value1 < 12);
+// console.log(value1 <= 12);
+// console.log(value1 <= 10);
 
 
-const number = 12n;
+// console.log('a' > 'B');
+// console.log('abracadabra' < 'B');
+//console.log( 100 >= NaN);
 
-let userValue = `45`;
-let userValue2 = `5`;
 
-let result = 4;
-result += +userValue + +userValue2 + +'2';
-//result += Number(userValue);
+// console.log(true > false);
+// console.log(true > true);
+// console.log(true >= true);
 
-//userName = true; //bad practic
+
+
+
