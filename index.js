@@ -10,21 +10,24 @@
 //   console.log('done!');
 // }
 
-myFirstFunction()
+function getSumTwoNums() {
+  const userInput1 = prompt('Enter number', 5);
+  const userInput2 = prompt('Enter number', 5);
 
-//declaration
-function myFirstFunction(){
-  console.log('myFirstFunction');
+  const isUserInputsNotNumber =
+    userInput1 === '' ||
+    userInput1 === null ||
+    Number.isNaN(Number(userInput1)) ||
+    userInput2 === '' ||
+    userInput2 === null ||
+    Number.isNaN(Number(userInput2));
+
+  if (isUserInputsNotNumber) {
+    console.log('error');
+  } else {
+    const summa = Number(userInput1) + Number(userInput2);
+    console.log(userInput1, '+', userInput2, '=', summa);
+  }
 }
 
-myFirstFunction()
-console.log(myFirstFunction);
-
-//mySecondFunction();
-//expression
-const mySecondFunction = function (){
-  console.log('mySecondFunction');
-}
-
-mySecondFunction();
-console.log(mySecondFunction);
+getSumTwoNums();
