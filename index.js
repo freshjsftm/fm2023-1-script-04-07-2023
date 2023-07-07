@@ -22,32 +22,32 @@ const isUserInputsNotNumber =
 
 /**
  *
- * @param {number | bigint} number1
- * @param {number | bigint} number2
- * @returns {number | bigint | boolean} 
+ * @param {*} number1 
+ * @param {*} number2
+ * @returns {number | bigint | boolean} number | bigint | false
  */
 function getSumTwoNums(number1, number2) {
   if (
-    (typeof number1 === 'number' && typeof number2 === 'number') ||
-    (typeof number1 === 'bigint' && typeof number2 === 'bigint')
+    Number(number1) + Number(number2) <= Number.MAX_SAFE_INTEGER &&
+    (typeof number1 === 'number' || typeof number1 === 'string') &&
+    typeof number1 === typeof number2
   ) {
-    return number1 + number2;
+    return Number(number1) + Number(number2);
+  }
+  if (typeof number1 === 'bigint' && typeof number2 === 'bigint') {
+    return BigInt(number1) + BigInt(number2);
   }
   return false;
 }
 
 if (isUserInputsNotNumber) {
   console.log('error');
-} else if (
-  Number(userInput1) > Number.MAX_SAFE_INTEGER ||
-  Number(userInput2) > Number.MAX_SAFE_INTEGER
-) {
-  const summa = getSumTwoNums(BigInt(userInput1), BigInt(userInput2));
-  console.log(userInput1, '+', userInput2, '=', summa);
 } else {
-  const summa = getSumTwoNums(Number(userInput1), Number(userInput2));
+  const summa = getSumTwoNums(userInput1, userInput2);
   console.log(userInput1, '+', userInput2, '=', summa);
 }
 
-console.log(3, '+', 8, '=', getSumTwoNums(3n, 8n));
+console.log(3n, '+', 8n, '=', getSumTwoNums(3n, 8n));
 console.log(3n, '+', 8, '=', getSumTwoNums(3n, 8));
+console.log('3', '+', '8', '=', getSumTwoNums('3', '8'));
+console.log(undefined, '+', '8', '=', getSumTwoNums(undefined, '8'));
