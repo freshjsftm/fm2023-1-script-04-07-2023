@@ -1,19 +1,47 @@
-let count = 0;
-// debugger
-// while (++count < 3) {
-//   console.log('count', count);
-// }
+const PASSWORD = '123';
+const MAX_TRY = 3;
 
+// let count = 0;
 // while (true) {
+//   const userInputPassword = prompt('Enter password');
 //   count++;
-//   console.log('count', count);
-//   if (count >= 3) break;
+//   if(count >= MAX_TRY) {
+//     alert('try empty');
+//     break;
+//   }
+//   if (PASSWORD === userInputPassword) {
+//     alert('welcome');
+//     break;
+//   }
 // }
-//do {} while (condition); - avoid
 
-
-// debugger
-let i = 45;
-for (let i = 1; i <= 3; i++) {
-  console.log('i', i);
+for (let i = 0; i < MAX_TRY; i++) {
+  alert('try number ' + (i + 1));
+  const userInputPassword = prompt('Enter password');
+  if (PASSWORD === userInputPassword) {
+    alert('welcome');
+    break;
+  }
+  if (i + 1 === MAX_TRY) {
+    alert('try empty');
+    break;
+  }
 }
+
+// for(;;){
+//   console.log(1)
+// }
+
+// while(true){
+//   console.log(1)
+// }
+
+
+
+
+
+// let userInputPassword = prompt('Enter password');
+// while (PASSWORD !== userInputPassword) {
+//   userInputPassword = prompt('Enter password');//123
+// }
+// alert('welcome');
