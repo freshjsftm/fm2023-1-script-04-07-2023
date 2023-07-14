@@ -1,47 +1,70 @@
-const PASSWORD = '123';
-const MAX_TRY = 3;
+// const obj1 = {};
 
-// let count = 0;
-// while (true) {
-//   const userInputPassword = prompt('Enter password');
-//   count++;
-//   if(count >= MAX_TRY) {
-//     alert('try empty');
-//     break;
+// const obj2 = Object();
+// const obj3 = new Object();
+
+// const cat = {
+//   name:'Ray',
+//   isMale: true,
+//   age: 1,
+//   isSleeping: false,
+//   talk: function(){
+//     return 'meow';
 //   }
-//   if (PASSWORD === userInputPassword) {
-//     alert('welcome');
-//     break;
+// };
+
+// const cat2 = {
+//   name:'Pushok',
+//   isMale: true,
+//   age: 3,
+//   isSleeping: true,
+//   color: 'gray',
+//   talk: function(){
+//     return 'meow';
 //   }
-// }
+// };
 
-for (let i = 0; i < MAX_TRY; i++) {
-  alert('try number ' + (i + 1));
-  const userInputPassword = prompt('Enter password');
-  if (PASSWORD === userInputPassword) {
-    alert('welcome');
-    break;
-  }
-  if (i + 1 === MAX_TRY) {
-    alert('try empty');
-    break;
-  }
-}
+// console.log(cat.name);
+// console.log(cat.age);
 
-// for(;;){
-//   console.log(1)
-// }
+// console.log('cat', cat);
 
-// while(true){
-//   console.log(1)
-// }
+// cat.age++;
+// console.log(cat.age);
 
+// delete cat.isSleeping;
+// console.log('cat', cat);
 
+// cat.color = 'wide';
 
+const button1 = {
+  content: 'submit',
+  autoFocus: false,
+  backColor: 'red',
+  click: function () {
+    return this.content;
+  },
+};
 
+// console.log(button1.backColor)
+// console.log(button1.click())
+// button1.name = 'send';
 
-// let userInputPassword = prompt('Enter password');
-// while (PASSWORD !== userInputPassword) {
-//   userInputPassword = prompt('Enter password');//123
-// }
-// alert('welcome');
+const button2 = {
+  content: 'reset',
+  autoFocus: true,
+  backColor: 'blue',
+  click: function () {
+    return this.content;
+  },
+};
+
+const button3 = {
+  content: 'subscribe',
+  autoFocus: true,
+  backColor: 'blue',
+  click: function () {
+    return this.content;
+  },
+};
+
