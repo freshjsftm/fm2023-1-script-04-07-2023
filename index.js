@@ -1,37 +1,18 @@
-const user1 = {
-  firstName: 'Brad',
-  lastName: 'Pitt',
-  age: 63,
-  'is male': true,
-  123: 456,
-  0: 'zero',
-};
+/*
+написати функцію, яка створює об'єкт родина (3)
+ключами об'єкта будуть імена
+значеннями - назви членів родини
+*/
 
-const nameUserProp = prompt('enter name');
-user1.prop1 = 45;
-user1[nameUserProp] = 'one two';
-user1[48] = null;
-console.log(user1);
+function createObjFamily(members = 3) {
+  const family = {};
+  for (let i = 0; i < members; i++) {
+    const nameMember = prompt('Enter name member'); 
+    const statusMember = prompt('Enter status member');
+    family[nameMember] = statusMember;
+  }
+  return family;
+}
 
-// const ageUser = 'age';
-
-// console.log(user1[0]);
-
-// console.log(user1['firstName']);
-// console.log(user1['lastName']);
-// console.log(user1[ageUser]); //63  ageUser = 'age'
-
-// const nameProp = 'is male';
-// console.log(user1[nameProp]);  //true
-// console.log(user1['is male']); //true
-
-// const number = 123;
-// console.log(user1[number]);
-// console.log(user1[123]);
-
-// console.log(user1.firstName);
-// console.log(user1['firstName']);
-// console.log(user1[0]);
-// console.log(user1['0']);
-// console.log(user1[123]);
-// console.log(user1['is male']);
+// const userFamily = createObjFamily();
+// console.log(userFamily);
