@@ -2,44 +2,36 @@ const user1 = {
   firstName: 'Brad',
   lastName: 'Pitt',
   age: 63,
-  isMale: true,
-};
-const user2 = {
-  firstName: 'Tom',
-  lastName: 'Rot',
-  age: 63,
-  isMale: true,
+  'is male': true,
+  123: 456,
+  0: 'zero',
 };
 
-function hiUser(objUser){  // objUser = user1
-  objUser.age = 10;
-  return `Hi, ${objUser.firstName} ${objUser.lastName}!`;
-}
+const nameUserProp = prompt('enter name');
+user1.prop1 = 45;
+user1[nameUserProp] = 'one two';
+user1[48] = null;
+console.log(user1);
 
-console.log(hiUser(user1))
-//console.log(hiUser(user2))
+// const ageUser = 'age';
 
+// console.log(user1[0]);
 
+// console.log(user1['firstName']);
+// console.log(user1['lastName']);
+// console.log(user1[ageUser]); //63  ageUser = 'age'
 
-const pr1 = 3;
-const pr2 = 3;
+// const nameProp = 'is male';
+// console.log(user1[nameProp]);  //true
+// console.log(user1['is male']); //true
 
-console.log(pr1 === pr2);
+// const number = 123;
+// console.log(user1[number]);
+// console.log(user1[123]);
 
-
-const obj1 = {
-  prop:1
-}
-
-const copyObj = obj1; //копію адреси об'єкта, ярлик, alias
-copyObj.test = 'qwerty';
-
-const obj2 = {
-  prop:1
-}
-
-console.log(obj1 === obj2); //false 
-
-console.log(obj1.prop1 === obj2.prop1);
-
-console.log(obj1 === copyObj); //true 
+// console.log(user1.firstName);
+// console.log(user1['firstName']);
+// console.log(user1[0]);
+// console.log(user1['0']);
+// console.log(user1[123]);
+// console.log(user1['is male']);
