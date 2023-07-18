@@ -1,26 +1,13 @@
-const year = {
-  winter: 'cold',
-  spring: 'not cold',
-  summer: 'hot',
-  autumn: 'not hot',
-  func: function(){return 123;}
-};
+const arr1 = ['red', 'pink', 'aqua'];
+const arr2 = new Array('red', 'pink', 'aqua');
 
-for (const property in year) { 
-  console.log(`${property} : ${year[property]}`);
-}
+// const arr3 = [3];
+// const arr4 = new Array(3);
 
+const linkArr = arr1;
 
-
-const curSezon = 'winter';
-
-console.log(curSezon in year);
-console.log('summer' in year);
-// console.log('winter' in year);
-// console.log('fall' in year);
-
-if (curSezon in year) {
-  console.log(year[curSezon]);
-} else {
-  console.log('error');
-}
+console.log(arr1 === linkArr);
+// console.log(arr1 === arr2);
+// console.log(arr1);
+// console.log(arr2);
+// console.log(arr1[1] === arr2[1]);
