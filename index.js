@@ -1,30 +1,22 @@
-const animal = {
-  eat: function () {
-    return this.firstName + ' are eating';
-  },
-  toString: function(){
-    return 'info';
-  }
-};
+const array1 = [{prop:12}, {name:'qwe'}, {}];
+const array2 = ['d', 'e', 'f'];
+const array3 = array2.concat({prop:12}, 789, array2, 'qwerty');
+const array4 = array2;
 
-const man = {
-  fullName: function () {
-    return this.firstName;
-  },
-  speak: function (word) {
-    return 'man speak: ' + word;
-  },
-};
+// console.log(array2 === array3); //shelly copy
+// console.log(array2 === array4); //copy address
+array3[0] = 'w';
+array4[0] = 'q';
 
-man.__proto__ = animal;
+console.log(array3);
+// console.log(array2);
 
-const user1 = {
-  firstName: 'Brad',
-  
-};
 
-user1.__proto__ = man;
-
-console.log(user1);
-console.log(user1.fullName());
-console.log(user1.speak('hi'));
+console.log(array1);
+const array5 = array1.concat(); //new address [copy address obj]
+console.log(array1[1].name);
+console.log(array5);
+console.log(array1 === array5);
+array5[1].name = 'Brad';
+console.log(array5[1].name);
+console.log(array1[1].name);
