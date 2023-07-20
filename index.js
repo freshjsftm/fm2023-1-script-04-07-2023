@@ -1,17 +1,9 @@
-const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const arr1 = [1, [7,7,7], 3, 4, 5];
 
-// const sliceArr1 = arr1.slice();
-// const sliceArr2 = arr1.slice(-1);//arr1.length-1
-// const sliceArr3 = arr1.slice(2, 7);
+const arr2 = [7,7,7];
+//alert(arr2)
 
-// console.log(sliceArr1);
-// console.log(sliceArr2);
-// console.log(sliceArr3);
+const strArray1 = arr1.join('_:_');
 
-// console.log(arr1);
+console.log(strArray1)
 
-const start = -1;
-const deleteCount = 4;
-const spliceArr1 = arr1.splice(start, deleteCount, '+','*');
-console.log(arr1);
-console.log(spliceArr1);
