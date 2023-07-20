@@ -47,11 +47,11 @@ function MyArray() {
 // union data with logic functionality
 MyArray.prototype = new ProptotypeMyArray();
 
-const myArr1 = new MyArray(4, 8, 6);
-const myArr2 = new MyArray(3);
-myArr1.push();
-myArr1.push();
-myArr1.push(34);
+// const myArr1 = new MyArray(4, 8, 6);
+// const myArr2 = new MyArray(3);
+// myArr1.push();
+// myArr1.push();
+// myArr1.push(34);
 // myArr1.push(23);
 // // console.log(myArr1)
 // // console.log(myArr1.toString())
