@@ -30,6 +30,11 @@ function ProptotypeMyArray() {
     // delete this[this.length];
     // return lastElem;
   };
+  this.forEach = function (callbackFn) {
+    for (let index = 0; index < this.length; index++) {
+      callbackFn(this[index]);
+    }
+  };
 }
 //data
 function MyArray() {
