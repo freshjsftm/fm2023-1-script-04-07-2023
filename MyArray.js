@@ -51,6 +51,15 @@ function ProptotypeMyArray() {
     }
     return true;
   };
+  this.filter = function (checkFn) {
+    const result = new MyArray();
+    for (let index = 0; index < this.length; index++) {
+      if (checkFn(this[index])) {
+        result.push(this[index]);
+      }
+    }
+    return result;
+  };
 }
 //data
 function MyArray() {
@@ -68,11 +77,11 @@ function MyArray() {
 // union data with logic functionality
 MyArray.prototype = new ProptotypeMyArray();
 
-const myArr1 = new MyArray(14, 12, 16);
-const checkMore10 = myArr1.every(function (elemCur) {
+const myArr1 = new MyArray(4, 12, 6);
+const checkMore10Array = myArr1.filter(function (elemCur) {
   return elemCur > 10;
 });
-// console.log(checkMore10);
+console.log(checkMore10Array);
 
 // const myArr2 = new MyArray(3);
 // myArr1.push();
