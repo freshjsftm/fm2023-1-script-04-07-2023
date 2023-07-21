@@ -35,6 +35,22 @@ function ProptotypeMyArray() {
       callbackFn(this[index]);
     }
   };
+  this.some = function (checkFn) {
+    for (let index = 0; index < this.length; index++) {
+      if (checkFn(this[index])) {
+        return true;
+      }
+    }
+    return false;
+  };
+  this.every = function (checkFn) {
+    for (let index = 0; index < this.length; index++) {
+      if (checkFn(this[index]) === false) {
+        return false;
+      }
+    }
+    return true;
+  };
 }
 //data
 function MyArray() {
@@ -52,7 +68,12 @@ function MyArray() {
 // union data with logic functionality
 MyArray.prototype = new ProptotypeMyArray();
 
-// const myArr1 = new MyArray(4, 8, 6);
+const myArr1 = new MyArray(14, 12, 16);
+const checkMore10 = myArr1.every(function (elemCur) {
+  return elemCur > 10;
+});
+// console.log(checkMore10);
+
 // const myArr2 = new MyArray(3);
 // myArr1.push();
 // myArr1.push();

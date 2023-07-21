@@ -1,35 +1,12 @@
-const arr1 = [1, 2, 3, 4, 5];
+//задовільняє
 
-function getSquare(value) {
-  console.log(value * value);
-  return value * value;
-}
+//some every
 
-arr1.forEach(getSquare);
+const arr1 = [21, 4, 83];
 
-// function getSum(value) {
-//   console.log(value + value);
-//   return value + value;
-// }
+const isEven = function (number) {
+  return number % 2 === 0;
+};
 
-// // for (let index = 0; index < arr1.length; index++) {
-// //   getSquare(arr1[index]);
-// // }
-
-// arr1.forEach(function(currentElement){
-//   console.log(currentElement)
-// });
-
-// arr1.forEach(getSum)
-
-// const myArr1 = new MyArray(4, 8, 6);
-// myArr1.forEach(getSquare);
-// // debugger
-// myArr1.forEach(function(currentElement){
-//   console.log(currentElement)
-// });
-
-const users = [{ name: 'Tom' }, { name: 'Brad' }, { name: 'Rob' }];
-users.forEach(function (user) {
-  user.isSubscribe = true;
-});
+// console.log(arr1.some(isEven))  //||
+// console.log(arr1.every(isEven)) //&&
