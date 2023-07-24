@@ -1,74 +1,45 @@
 'use strict';
 
-// function test(){
-//   console.log(this);
-// }
-
-// test();
-
-function showHeader(header) {
-  console.log(this); //undefined
-  console.log(header, this.title);
-}
-
-// const landing = {
-//   title: 'landing',
-//   headers: ['Welcome', 'About me', 'Contacts']
-// }
-
-const site = {
-  title: 'Portfolio',
-  headers: ['Welcome', 'About me', 'Contacts'],
-  //showHeaders: function(){},
-  // // variant 1 - copy address site
-  // showHeaders(){
-  //   //console.log(this);
-  //   const self = this; //copy address site
-  //   this.headers.forEach(function(header){
-  //     console.log(self); //site
-  //     console.log(header, self.title)
-  //   })
-  // }
-  // variant 2 - this argument
-  // showHeaders() {
-  //   //console.log(this);
-  //   this.headers.forEach(showHeader, this); //this===site
-  // },
-  // variant 3 - bind
-  // showHeaders() {
-  //   //console.log(this);
-  //   this.headers.forEach(showHeader.bind(this)); //this===site
-  // },
-  // variant 4 - arrow
-  showHeaders() {
-    //console.log(this); //site
-    this.headers.forEach((header) => {
-      //console.log(this); //site
-      console.log(header, this.title);
-    });
-  },
+function test1 (number, ...rest) {
+  console.log(number);
+  console.log(arguments);
+  console.log(rest);
 };
-// debugger
-site.showHeaders();
 
-// console.log(this);
+//expression
+const test2 = function (number) {
+  console.log(number);
+  console.log(arguments);
+};
 
-// //declaration
-// function test1() {
-//   console.log(this);
-// }
+const test22 = function (number, ...rest) {
+  console.log(number);
+  console.log(arguments);
+  console.log(rest);
+};
 
-// //expression
-// const test2 = function () {
-//   console.log(this);
+//arrow
+const test3 = (number1, number2, ...args) => {
+  console.log(number1);
+  console.log(args);
+};
+
+test22(1, 2, 3);
+//test3(1, 2, 3, 4, 5, 6, 7);
+
+// console.dir(test2)
+// console.dir(test3)
+
+// const getAreaSquare = (number) => {
+//   return number * number;
 // };
 
-// //arrow
-// const test3 = () => {
-//   console.log(this);
-// };
+// const getAreaSquare = (number=1) => number * number;
 
-// test1();
-// test2();
+// const logAreaSquare = (number=1) => console.log(number * number);
+// // const result = logAreaSquare(5);
+// // console.log(result);
 
-// test3();
+// const returnObject = (value) => ({prop: value})
+// const result2 = returnObject(5);
+// console.log(result2);
