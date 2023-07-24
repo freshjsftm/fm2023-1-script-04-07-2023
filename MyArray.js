@@ -81,6 +81,8 @@ const myArr1 = new MyArray(4, 12, 6);
 const checkMore10Array = myArr1.filter(function (elemCur) {
   return elemCur > 10;
 });
+
+
 //console.log(checkMore10Array);
 
 // const myArr2 = new MyArray(3);
