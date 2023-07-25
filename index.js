@@ -1,43 +1,53 @@
 'use strict';
 
-function recursion(number) {
-  if (number === 0) {
-    return;
+/**
+ *
+ * @param {number} number
+ * @param {number} exp
+ * @returns
+ */
+function getPowerNumberRecursion(number, exp) {
+  ///number1 = 5
+  if (typeof number !== 'number' || typeof exp !== 'number') {
+    throw new TypeError('type incorrect');
   }
-  console.log(number);
-  recursion(number - 1);
-}
-// debugger
-//recursion(12000);
-
-function getPowerNumberLoop(number, exp) {
-  let result = 1;
-  for (let i = 0; i < exp; i++) {
-    result *= number;
+  if (exp < 0 || exp >= 100) {
+    throw new RangeError('exp must be positive less 100');
   }
-  return result;
+  if (exp === 0) {
+    return 1;
+  }
+  if (exp === 1) {
+    return number;
+  }
+  return number * getPowerNumberRecursion(number, exp - 1);
 }
 
-getPowerNumberLoop(2, 3); //8
+// console.log(getPowerNumberRecursion(2, 'three'));
+//console.log(getPowerNumberRecursion(2, -3));
 
-// function getPowerNumberRecursion(number, exp) {
-//   if (exp === 0) {
-//     return 1;
-//   }
-//   if (exp === 1) {
-//     return number;
-//   }
-//   return number * getPowerNumberRecursion(number, exp - 1);
+try {
+  console.log('try1');
+  console.log(getPowerNumberRecursion(2, null));
+  console.log(getPowerNumberRecursion(2, -3));
+  //throw new RangeError();
+  console.log('try2');
+  console.log(getPowerNumberRecursion(2, 3));
+} catch (error) { //object 44FA22
+  console.log('catch');
+  console.log('error -', error);
+  console.dir(error);
+  alert(error.message);
+  // if(error instanceof RangeError){
+  //   alert('check exp!')
+  // } else if(error instanceof TypeError){
+  //   alert('check type!')
+  // }else{
+  //   alert('error')
+  // }
+} //
+// finally {
+// console.log('finally')
 // }
 
-const getPowerNumberRecursion = (number, exp) =>
-  exp === 0 ? 1 : number * getPowerNumberRecursion(number, exp - 1);
-
-// debugger
-console.log(getPowerNumberRecursion(2, 3));
-
-/*
-2**4 *1 = 2*2*2*2 *1  = 2* 2**3 *1
-2**3 = 2*2*2 = 2* 2**2
-2**2 = 2*2 = 2* 2**1
-*/
+console.log('more code');
