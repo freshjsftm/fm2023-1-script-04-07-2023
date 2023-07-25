@@ -1,23 +1,43 @@
 'use strict';
 
-const sum = (...args) => {
-  let summa = 0;
-  // for (let index = 0; index < args.length; index++) {
-  //   summa += args[index];
-  // }
-  args.forEach((arg) => {
-    summa = summa + arg;
-  });
-  return summa;
-};
+function recursion(number) {
+  if (number === 0) {
+    return;
+  }
+  console.log(number);
+  recursion(number - 1);
+}
+// debugger
+//recursion(12000);
 
-const sumWithReduce = (...args) => args.reduce((summa, arg) => summa + arg, 0);
+function getPowerNumberLoop(number, exp) {
+  let result = 1;
+  for (let i = 0; i < exp; i++) {
+    result *= number;
+  }
+  return result;
+}
 
-const arr = [1, 2, 3, 4, 5];
-const arrNew = [...arr, 2, ...arr];
+getPowerNumberLoop(2, 3); //8
 
-const result = sum(...arr); //sum(1, 2, 3, 4, 5)
-console.log(result);
+// function getPowerNumberRecursion(number, exp) {
+//   if (exp === 0) {
+//     return 1;
+//   }
+//   if (exp === 1) {
+//     return number;
+//   }
+//   return number * getPowerNumberRecursion(number, exp - 1);
+// }
 
-const result2 = sumWithReduce(...arr); 
-console.log(result2);
+const getPowerNumberRecursion = (number, exp) =>
+  exp === 0 ? 1 : number * getPowerNumberRecursion(number, exp - 1);
+
+// debugger
+console.log(getPowerNumberRecursion(2, 3));
+
+/*
+2**4 *1 = 2*2*2*2 *1  = 2* 2**3 *1
+2**3 = 2*2*2 = 2* 2**2
+2**2 = 2*2 = 2* 2**1
+*/
