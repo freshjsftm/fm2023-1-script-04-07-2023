@@ -1,21 +1,16 @@
-const check = false; // primitive
+const number1Obj = new Number(10.1321546);
+console.log(Number(number1Obj.toFixed(2)));
+console.log(typeof number1Obj, number1Obj);
 
-const boolObj = new Boolean(false); //creates Boolean objects  address
 
-console.log(boolObj);
-console.log(boolObj.valueOf());
+console.log(Number.MIN_VALUE);
 
-if (check) {
-  console.log('check 1');
-}
+const number2 = 123.1231231;
+console.log(number2.toFixed(3));
+console.log(number2.toPrecision(4));
+console.log(number2.toExponential());
+console.log(typeof number2);
 
-if (boolObj) {
-  console.log('check 2');
-  console.log(boolObj.valueOf());
-}
-
-const number = 12;
-
-if (Boolean(number)) {
-  console.log('check 3');
-}
+console.log((15.9513235).toFixed(3));
+console.log((15.9513235).toPrecision(4));
+console.log((15123.9513235).toExponential());
