@@ -1,16 +1,10 @@
-const number1Obj = new Number(10.1321546);
-console.log(Number(number1Obj.toFixed(2)));
-console.log(typeof number1Obj, number1Obj);
+const strObj = new String('qwerty');
+console.log(strObj);
 
-
-console.log(Number.MIN_VALUE);
-
-const number2 = 123.1231231;
-console.log(number2.toFixed(3));
-console.log(number2.toPrecision(4));
-console.log(number2.toExponential());
-console.log(typeof number2);
-
-console.log((15.9513235).toFixed(3));
-console.log((15.9513235).toPrecision(4));
-console.log((15123.9513235).toExponential());
+let str1 = 'hi, user';
+str1.toUpperCase();
+//str1 = str1.trim() //
+str1.trim();
+console.log(str1);
+const arrFromStr1 = str1.split('hi');
+console.log(arrFromStr1);
