@@ -21,6 +21,6 @@ function UserPrototype() {
 User.prototype = new UserPrototype();
 
 const user1 = new User('Brad', 'Pitt', 60);
-console.log(user1.getFullName());
+// console.log(user1.getFullName());
 
 
