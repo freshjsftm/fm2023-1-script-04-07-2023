@@ -1,13 +1,13 @@
+'use strict';
 
-const object = {
-  _prop: 12,
-  get prop(){
-    return this._prop;
-  },
-  set prop(value){
-    //throw Error
-    this._prop = value;
+const Test = class{
+  constructor(){
+    //data
   }
-}
-object.prop = 45;
-console.log(object.prop);
+
+  //methods
+
+  static isTest(obj){
+    return obj instanceof Test;
+  }
+};
