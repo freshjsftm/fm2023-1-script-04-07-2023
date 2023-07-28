@@ -8,11 +8,12 @@ class UserClass {
    * @param {string} lastName
    * @param {number} age
    */
-  constructor(firstName, lastName, age, gender='male') {
+  constructor(firstName, lastName, age, gender = 'male') {
     this.gender = gender;
     this.age = age;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.isBanned = false;
     UserClass.amount++;
   }
   getFullName() {
@@ -72,17 +73,96 @@ class UserClass {
   static createUserTest() {
     return new UserClass('noname', 'noname', 18);
   }
+  static isUser(obj) {
+    return obj instanceof UserClass;
+  }
+}
+
+class Moderator extends UserClass {
+  constructor(firstName, lastName, age = 18, gender = 'female', rate = 1) {
+    super(firstName, lastName, age, gender);
+    this.rate = rate;
+  }
+  accessMessage() {
+    return 'access';
+  }
+  deleteMessage() {
+    return 'delete';
+  }
+  getFullName(word = 'moderator: ') {
+    return word + super.getFullName() + ', ' + super.gender;
+  }
+}
+
+class Admin extends Moderator {
+  constructor(
+    firstName,
+    lastName,
+    age = 18,
+    gender = 'female',
+    rate = 1,
+    superProp = '!!!'
+  ) {
+    super(firstName, lastName, age, gender, rate);
+    this.superProp = superProp;
+  }
+  getFullName() {
+    return super.getFullName('admin: ');
+  }
+  ban(user) {
+    if (UserClass.isUser(user)) {
+      user.isBanned = true;
+      return;
+    }
+    throw new TypeError('object must be user');
+  }
+  unban(user) {
+    if (UserClass.isUser(user)) {
+      user.isBanned = false;
+      return;
+    }
+    throw new TypeError('object must be user');
+  }
 }
 
 try {
+  const admin = new Admin('Tom', 'Pitt');
+  console.log(admin);
+  console.log(admin.accessMessage());
+  console.log(admin.getFullName());
+
+  const moderator = new Moderator('Brad', 'Pitt');
+  console.log(moderator.getFullName());
   const user2 = new UserClass('Brad', 'Pitt', 70, 'male');
-  user2.owner = 'qwe';
-  console.log(user2);
-  // console.log(user2.getFullName());
-  console.log(user2.age);
-  user2.age = 60;
-  // console.log(user2);
-  console.log(user2.age);
+  console.log(user2.getFullName());
+  admin.ban(moderator);
+  console.log(user2.isBanned);
 } catch (error) {
   console.log(error.message);
 }
+
+// try {
+//   const moderator = new Moderator('Brad', 'Pitt');
+//   console.log(moderator);
+//   console.log(moderator.accessMessage());
+//   console.log(moderator.getFullName());
+
+//   const user2 = new UserClass('Brad', 'Pitt', 70, 'male');
+//   console.log(user2.getFullName());
+//   // console.log(user2.accessMessage());
+// } catch (error) {
+//   console.log(error.message);
+// }
+
+// try {
+//   const user2 = new UserClass('Brad', 'Pitt', 70, 'male');
+//   user2.owner = 'qwe';
+//   console.log(user2);
+//   // console.log(user2.getFullName());
+//   console.log(user2.age);
+//   user2.age = 60;
+//   // console.log(user2);
+//   console.log(user2.age);
+// } catch (error) {
+//   console.log(error.message);
+// }
