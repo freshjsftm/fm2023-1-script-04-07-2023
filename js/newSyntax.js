@@ -1,13 +1,15 @@
 'use strict';
 
 class UserClass {
+  #gender;
   /**
    *
    * @param {string} firstName
    * @param {string} lastName
    * @param {number} age
    */
-  constructor(firstName, lastName, age) {
+  constructor(firstName, lastName, age, gender='male') {
+    this.gender = gender;
     this.age = age;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -15,6 +17,18 @@ class UserClass {
   }
   getFullName() {
     return this._firstName + ' ' + this._lastName;
+  }
+  get gender() {
+    return this.#gender;
+  }
+  set gender(gender) {
+    if (typeof gender !== 'string') {
+      throw new TypeError('gender must be string');
+    }
+    if (gender !== 'male' && gender !== 'female') {
+      throw new RangeError('gender must be male or female');
+    }
+    this.#gender = gender;
   }
   get age() {
     return this._age;
@@ -61,7 +75,7 @@ class UserClass {
 }
 
 try {
-  const user2 = new UserClass('Brad', 'Pitt', 70);
+  const user2 = new UserClass('Brad', 'Pitt', 70, 'male');
   user2.owner = 'qwe';
   console.log(user2);
   // console.log(user2.getFullName());
