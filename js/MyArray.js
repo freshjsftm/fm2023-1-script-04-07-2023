@@ -1,3 +1,9 @@
+function ProtoProto(){
+  this.test123132 = function(){
+    console.log('TEST');
+  }
+}
+
 //logic functionality
 function ProptotypeMyArray() {
   this.push = function () {
@@ -74,6 +80,7 @@ function MyArray() {
     }
   }
 }
+ProptotypeMyArray.prototype = new ProtoProto();
 // union data with logic functionality
 MyArray.prototype = new ProptotypeMyArray();
 
