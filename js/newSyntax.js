@@ -14,7 +14,7 @@ class UserClass {
     this.firstName = firstName;
     this.lastName = lastName;
     this.isBanned = false;
-    UserClass.amount++;
+    UserClass.#amount++;
   }
   getFullName() {
     return this._firstName + ' ' + this._lastName;
@@ -69,7 +69,7 @@ class UserClass {
     this._lastName = lastName;
   }
 
-  static amount = 0;
+  static #amount = 0;
   static createUserTest() {
     return new UserClass('noname', 'noname', 18);
   }
@@ -125,21 +125,21 @@ class Admin extends Moderator {
   }
 }
 
-try {
-  const admin = new Admin('Tom', 'Pitt');
-  console.log(admin);
-  console.log(admin.accessMessage());
-  console.log(admin.getFullName());
+// try {
+//   const admin = new Admin('Tom', 'Pitt');
+//   console.log(admin);
+//   console.log(admin.accessMessage());
+//   console.log(admin.getFullName());
 
-  const moderator = new Moderator('Brad', 'Pitt');
-  console.log(moderator.getFullName());
-  const user2 = new UserClass('Brad', 'Pitt', 70, 'male');
-  console.log(user2.getFullName());
-  admin.ban(moderator);
-  console.log(user2.isBanned);
-} catch (error) {
-  console.log(error.message);
-}
+//   const moderator = new Moderator('Brad', 'Pitt');
+//   console.log(moderator.getFullName());
+//   const user2 = new UserClass('Brad', 'Pitt', 70, 'male');
+//   console.log(user2.getFullName());
+//   admin.ban(moderator);
+//   console.log(user2.isBanned);
+// } catch (error) {
+//   console.log(error.message);
+// }
 
 // try {
 //   const moderator = new Moderator('Brad', 'Pitt');
