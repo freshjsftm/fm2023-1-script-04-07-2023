@@ -44,13 +44,23 @@ class Circle extends Figure {
   #radius;
   constructor(radius) {
     super('Circle');
-    this.#radius = radius;
+    this.radius = radius;
   }
   getArea() {
     return Math.PI * this.#radius * this.#radius;
   }
-  get radius(){}
-  set radius(radius){}
+  get radius() {
+    return this.#radius;
+  }
+  set radius(radius) {
+    if (typeof radius !== "number" || Number.isNaN(radius)) {
+      throw new TypeError("radius must be number");
+    }
+    if (radius <= 0) {
+      throw new RangeError("radius must be more 0");
+    }
+    this.#radius = radius;
+  }
 }
 
 class Square extends Figure {
@@ -68,8 +78,9 @@ const fig1 = new Triangular(2, 3, 45);
 //fig1.name = 456; //index.js:66 Uncaught TypeError: Cannot set property name of #<Figure> which has only a getter
 //console.log(fig1.getArea());
 
-const fig2 = new Circle(10);
+const fig2 = new Circle(5);
 //console.log(fig2.getArea());
+//console.log(fig2.#radius)
 
 function getAreaFigure(figure) {
   if (figure instanceof Figure) {
@@ -77,3 +88,5 @@ function getAreaFigure(figure) {
   }
   throw new TypeError('must be instance Figure');
 }
+
+
