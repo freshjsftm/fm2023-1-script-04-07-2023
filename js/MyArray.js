@@ -1,3 +1,16 @@
+class IteratorMyArray{
+  constructor(myArrInstance){
+    this.myArray = myArrInstance;
+    this.currentIndex = 0;
+  }
+  next(){
+    return {
+      value: this.myArray[this.currentIndex++],
+      done: this.currentIndex > this.myArray.length,
+    }
+  }
+}
+
 class MyArray {
   #length;
   constructor() {
@@ -84,14 +97,6 @@ class MyArray {
   }
   flat(depth = 1) {
     let newMyArray = new MyArray();
-    // for (let index = 0; index < this.length; index++) {
-    //   if (MyArray.isMyArray(this[index]) && depth > 0) {
-    //     const newSubMyArray = this[index].flat(depth - 1);
-    //     newMyArray = newMyArray.concat(newSubMyArray);
-    //   } else if (this[index] !== undefined) {
-    //     newMyArray.push(this[index]);
-    //   }
-    // }
     this.forEach((element) => {
       if (MyArray.isMyArray(element) && depth > 0) {
         newMyArray = newMyArray.concatForFlat(element.flat(depth - 1));
@@ -101,35 +106,28 @@ class MyArray {
     });
     return newMyArray;
   }
+
+  [Symbol.iterator]() {
+    return new IteratorMyArray(this);
+  }
+
   static isMyArray(instanceMyArray) {
     return instanceMyArray instanceof MyArray;
   }
 }
 
-const myArr1 = new MyArray(
-  4,
-  undefined,
-  12,
-  new MyArray(
-    2,
-    2,
-    new MyArray(
-      3,
-      3,
-      new MyArray(3, 3, new MyArray(3, 3, 3), new MyArray(3, 3, 3), 3),
-      3
-    ),
-    2
-  ),
-  6
-);
-const checkMore10Array = myArr1.filter(function (elemCur) {
-  return elemCur > 10;
-});
-// const checkMyArray = new MyArray();
-console.log(MyArray.isMyArray(myArr1));
+const myArr1 = new MyArray(  4,  12,  6);
 
-console.log(myArr1);
+console.log(...myArr1);
+for (const elem of myArr1) {
+  console.log(elem);
+}
+
+
+// const checkMyArray = new MyArray();
+// console.log(MyArray.isMyArray(myArr1));
+
+// console.log(myArr1);
 
 // const myArr2 = new MyArray(...myArr1)
 
@@ -147,4 +145,3 @@ console.log(myArr1);
 // // console.log(myArr1.toString())
 // alert(myArr1);
 
-const arr4 = [1, 2, , , , , [3, 4, [5, 6, [7, 8, [9, 10]]]]];

@@ -1,92 +1,40 @@
 'use strict';
 
-//abstract
-class Figure {
-  #name; //private
-  constructor(name) {
-    if (this.constructor === Figure) {
-      throw new Error('You cannot create instance in abstract class Figure');
-    }
-    if (typeof name !== 'string') {
-      throw new TypeError('name must be string');
-    }
-    this.#name = name || 'noname';
-  }
-  get name() {
-    return this.#name;
-  }
-  getInfo() {
-    return 'Figure: ' + this.#name;
-  }
-  getArea() {}
-  getPerimetr() {}
+const sym1 = Symbol('позначення для розробника');
+// console.log(sym1);
+
+// const sym2 = Symbol('позначення для розробника');
+// console.log(sym2);
+// const sym3 = sym1;
+// console.log(sym1 === sym2);
+// console.log(sym1 === sym3);
+
+const obj = {
+  sym1:12,
+  prop:888,
+  [sym1]:55,
+  [Symbol('key')]:3333
 }
 
-class Triangular extends Figure {
-  #sideA;
-  #sideB;
-  #angleAB;
-  constructor(sideA, sideB, angleAB) {
-    super('Triangular');
-    this.#sideA = sideA;
-    this.#sideB = sideB;
-    this.#angleAB = angleAB;
-  }
-  getArea() {
-    return (
-      (this.#sideA * this.#sideB * Math.sin((this.#angleAB * Math.PI) / 180)) /
-      2
-    );
-  }
-}
+// console.log(obj);
+// console.log(obj.sym1);
+// console.log(obj[sym1]);
+// console.log(obj['sym1']);
 
-class Circle extends Figure {
-  #radius;
-  constructor(radius) {
-    super('Circle');
-    this.radius = radius;
-  }
-  getArea() {
-    return Math.PI * this.#radius * this.#radius;
-  }
-  get radius() {
-    return this.#radius;
-  }
-  set radius(radius) {
-    if (typeof radius !== "number" || Number.isNaN(radius)) {
-      throw new TypeError("radius must be number");
-    }
-    if (radius <= 0) {
-      throw new RangeError("radius must be more 0");
-    }
-    this.#radius = radius;
-  }
-}
+const arr = [1, 2, 3, 5, 6];
+// for (const elem of arr) {
+//   console.log(elem);
+// }
 
-class Square extends Figure {
-  #side;
-  constructor(radius) {
-    super('Square');
-    this.#side = side;
-  }
-  getArea() {
-    return this.#side * this.#side;
-  }
-}
+// for (const letter of 'arz') {
+//   console.log(letter);
+// }
 
-const fig1 = new Triangular(2, 3, 45);
-//fig1.name = 456; //index.js:66 Uncaught TypeError: Cannot set property name of #<Figure> which has only a getter
-//console.log(fig1.getArea());
+//Uncaught TypeError: obj is not iterable
+// for (const key of obj) {
+//   console.log(key);
+// }
 
-const fig2 = new Circle(5);
-//console.log(fig2.getArea());
-//console.log(fig2.#radius)
-
-function getAreaFigure(figure) {
-  if (figure instanceof Figure) {
-    return figure.getArea();
-  }
-  throw new TypeError('must be instance Figure');
-}
-
+// console.log(...arr);
+// console.log(arr);
 
