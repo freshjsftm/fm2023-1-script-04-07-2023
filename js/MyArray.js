@@ -1,13 +1,13 @@
-class IteratorMyArray{
-  constructor(myArrInstance){
+class IteratorMyArray {
+  constructor(myArrInstance) {
     this.myArray = myArrInstance;
     this.currentIndex = 0;
   }
-  next(){
+  next() {
     return {
       value: this.myArray[this.currentIndex++],
       done: this.currentIndex > this.myArray.length,
-    }
+    };
   }
 }
 
@@ -116,32 +116,9 @@ class MyArray {
   }
 }
 
-const myArr1 = new MyArray(  4,  12,  6);
+const myArr1 = new MyArray(4, 12, 6);
 
-console.log(...myArr1);
-for (const elem of myArr1) {
-  console.log(elem);
-}
-
-
-// const checkMyArray = new MyArray();
-// console.log(MyArray.isMyArray(myArr1));
-
-// console.log(myArr1);
-
-// const myArr2 = new MyArray(...myArr1)
-
-// const arr1 = [1,2,3]
-// const arr2 = [...arr1]
-
-//console.log(checkMore10Array);
-
-// const myArr2 = new MyArray(3);
-// myArr1.push();
-// myArr1.push();
-// myArr1.push(34);
-// myArr1.push(23);
-// // console.log(myArr1)
-// // console.log(myArr1.toString())
-// alert(myArr1);
-
+// console.log(...myArr1);
+// for (const elem of myArr1) {
+//   console.log(elem);
+// }

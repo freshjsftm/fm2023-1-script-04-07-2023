@@ -1,40 +1,57 @@
 'use strict';
 
-const sym1 = Symbol('позначення для розробника');
-// console.log(sym1);
+// O(1)   O(1) + O(1) + O(1)  = O(3) = O(1)
+const arr = [10, 3, 7, 40, 12, 22, 3, 4];
+//console.log(arr[0]);
 
-// const sym2 = Symbol('позначення для розробника');
-// console.log(sym2);
-// const sym3 = sym1;
-// console.log(sym1 === sym2);
-// console.log(sym1 === sym3);
+// O(n)    O(n) + O(n) = O(2*n) = O(n)
+const linearSearch = (array, key) => {
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    console.log(element);
+  }
+  for (let index = 0; index < array.length; index++) {
+    if (array[index] === key) {
+      return index;
+    }
+  }
+  return -1;
+};
+//console.log(linearSearch(arr, 13))
 
-const obj = {
-  sym1:12,
-  prop:888,
-  [sym1]:55,
-  [Symbol('key')]:3333
-}
+// O(n^2)     O(n)*O(n) = O(n^2)
+const createMultTable = (limit = 10) => {
+  const table = {};
+  for (let i = 1; i < limit; i++) {
+    for (let j = 1; j < limit; j++) {
+      table[`${i} * ${j}`] = i * j;
+    }
+  }
+  return table;
+};
+// const tableMult = createMultTable(5);
+// console.log(tableMult);
 
-// console.log(obj);
-// console.log(obj.sym1);
-// console.log(obj[sym1]);
-// console.log(obj['sym1']);
+const sortArr = arr.sort((a, b) => a - b);
+console.log(sortArr);
 
-const arr = [1, 2, 3, 5, 6];
-// for (const elem of arr) {
-//   console.log(elem);
-// }
+// O(log(n))
+const binarySearch = (array, key) => {
+  let start = 0;
+  let end = array.length - 1;
+  let middle;
+  while (start<=end) {
+    middle = Math.round((start + end) / 2);
+    if (array[middle] === key) {
+      return middle;
+    }
+    if (array[middle] < key) {
+      start = middle + 1;
+    } else {
+      end = middle - 1;
+    }
+  }
+  return -1;
+};
 
-// for (const letter of 'arz') {
-//   console.log(letter);
-// }
-
-//Uncaught TypeError: obj is not iterable
-// for (const key of obj) {
-//   console.log(key);
-// }
-
-// console.log(...arr);
-// console.log(arr);
-
+//console.log(binarySearch(sortArr, 3))
