@@ -1,3 +1,17 @@
+class IteratorLinkedList{
+  constructor(list){
+    this.list = list;
+    this.currentItem = null;
+  }
+  next(){
+    this.currentItem = this.currentItem === null ? this.list.head : this.currentItem.next;
+    return {
+      value: this.currentItem ? this.currentItem.data : undefined,
+      done: this.currentItem === null,
+    }
+  }
+}
+
 class ListItem {
   //user
   constructor(data) {
@@ -23,6 +37,10 @@ class LinkedList {
       this.push(arg);
     }
   }
+  [Symbol.iterator](){
+    return new IteratorLinkedList(this);
+  }
+
   push(arg) {
     const item = new ListItem(arg);
     if (this.length === 0) {
@@ -35,11 +53,24 @@ class LinkedList {
     }
     return ++this.length;
   }
-  delete(item){}
-  add(item){}
-}
+  // unshift(arg){}
+  // add(arg){}
 
-// Оля, Коля     - Вася
+  // pop(){}
+  // shift(){}
+  // delete(item){}
+
+  //повертає знайдений елемент (ключ співпадає зі значенням), інакше повертає null
+  search(key){
+    for (const item of this) {
+      
+    }
+  }
+
+}
 
 const list = new LinkedList(1, [10, 20], { prop: 'qwe' }, null, 'asd');
 console.log(list);
+
+console.log(...list);
+
