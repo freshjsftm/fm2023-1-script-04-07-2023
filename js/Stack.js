@@ -33,6 +33,6 @@ class Stack {
   }
 }
 
-const stack = new Stack(3, 2, 3, 5);
-console.log(stack);
-console.log(stack.peek());
+//const stack = new Stack(3, 2, 3, 5);
+// console.log(stack);
+// console.log(stack.peek());
