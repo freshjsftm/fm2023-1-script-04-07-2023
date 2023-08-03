@@ -77,7 +77,7 @@ class LinkedList {
   }
 }
 
-const list = new LinkedList(1, [10, 20], { prop: 'qwe' }, null, 'asd');
-console.log(list.search(null));
+// const list = new LinkedList(1, [10, 20], { prop: 'qwe' }, null, 'asd');
+// console.log(list.search(null));
 
 //console.log(...list);
