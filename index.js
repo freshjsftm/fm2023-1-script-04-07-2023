@@ -1,18 +1,59 @@
 'use strict';
 
-const arr1 = [1, 5, 6, 8, 5, 5, 5];
-const set1 = new Set();
-set1.add(1).add(arr1).add(arr1).add('1');
-set1.add([1]); //new address
-set1.add([1]); //new address
-console.log(set1);
+//деструктуризація - спосіб створення змінної
 
-const set2 = new Set(arr1);
-console.log(set2);
+const user = {
+  privateInfo: {
+    id: 101,
+    firstName: 'Brad',
+    lastName: 'Pitt',
+    birthday: {
+      day: 18,
+      month: 12,
+      year: 1963,
+    },
+    children: [
+      {
+        name: 'Anna',
+        age: 15,
+      },
+      {
+        name: 'Tom',
+        age: 23,
+      },
+    ],
+  },
+  contactInfo: {
+    phone: '123-56-89',
+    email: 'pitt@gmail.com',
+    address: {
+      town: 'New Y',
+      state: 'NY',
+      street: 'Avenu 45',
+    },
+  },
+  proffessionInfo: {
+    proffesion: 'actor',
+  },
+};
+// const yearBDay = user.privateInfo.birthday.year;
+// const dayBDay = user.privateInfo.birthday.day;
+// const lastName = user.privateInfo.lastName;
+const {
+  privateInfo: {
+    lastName: userSName,
+    birthday: { day: dayBDay, year: yearBDay },
+    children: [, { name: nameTwoChild }],
+  },
+  contactInfo: { email },
+} = user;
 
-const set3 = new Set('qwsfhyufertqqqqqyqwe');
-const uniqLetter = [...set3].join('')
-console.log(set3);
+// phoneUser, townUser, proffesionUser
 
-const arr1Unique = [...new Set(arr1)];
-console.log(arr1Unique);
+const {
+  contactInfo: {
+    phone: phoneUser,
+    address: { town: townUser },
+  },
+  proffessionInfo: { proffesion: proffesionUser },
+} = user;
